@@ -18,3 +18,16 @@ issue some encryption on file system level should be considered instead.
 A FUSE based encryption file system, such as encfs, has proven to work very
 well together with rar2fs.
 
+Debian 13 (Trixie) Notes ========================
+
+RAR2FS expects a static UnRAR library when building against modern UnRAR sources.
+
+Before running configure, build libunrar.a:
+
+	cd /path/to/unrar
+	make lib
+
+Then build rar2fs:
+
+	./configure --with-unrar=/path/to/unrar
+	make
